@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  <meta charset="UTF-8">
+  <title>DrawPiChart Sample!!!!!</title>
+  <script src="draw-pie-chart.js"></script>
+</head>
+
+<body>
+  <textarea id="labels" cols="60" rows="1">charmander,bulbasaur,squirtle</textarea><br>
+  <textarea id="vals" cols="60" rows="1">16,62,45</textarea><br>
+  <textarea id="colors" cols="60" rows="1">pink,lightgreen,skyblue</textarea><br>
+  <input type="button" value="apply" onclick="buttonClick()"><br><br>
+  <canvas id="target" width="500" height="500" style="border:grey solid 0.5px">
+    <p>not support canvas</p>
+  </canvas>
+  <script>
+    function buttonClick() {
+      const labelText = document.getElementById("labels").value;
+      const valText = document.getElementById("vals").value;
+      const colorText = document.getElementById("colors").value;
+
+      var element = document.getElementById("target");
+      var labels = labelText.split(',');
+      var vals = valText.split(',').map(str => parseInt(str, 10));
+      var colors = colorText.split(',');
+      drawPiChart(element, labels, vals, colors, 15, "Arial");
+    }
+
+    buttonClick();
+
+  </script>
+</body>
+
+</html>
